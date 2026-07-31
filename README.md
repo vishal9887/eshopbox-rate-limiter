@@ -2,12 +2,6 @@
 
 Allows max N API calls per second. Extra calls get rejected.
 
-## Run
-
-```
-g++ main.cpp -o rate_limiter
-./rate_limiter
-```
 
 ## How it works
 
