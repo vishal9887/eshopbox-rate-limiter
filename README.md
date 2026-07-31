@@ -5,7 +5,7 @@ Allows max N API calls per second. Extra calls get rejected.
 ## Run
 
 ```
-g++ -std=c++17 -pthread main.cpp -o rate_limiter
+g++ main.cpp -o rate_limiter
 ./rate_limiter
 ```
 
