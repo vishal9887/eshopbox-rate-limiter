@@ -1,0 +1,14 @@
+# Compiled binaries
+*.exe
+*.out
+*.o
+rate_limiter
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
