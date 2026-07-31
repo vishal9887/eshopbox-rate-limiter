@@ -1,6 +1,6 @@
 # Rate Limiter
 
-A simple rate limiter that allows max N requests per second.
+Limits API calls to max N per second.
 
 ## Run
 
@@ -10,8 +10,12 @@ node test.js
 
 ## How it works
 
-I'm tracking the current second and keeping a counter. When a new second starts, counter resets to 0. If counter is under the limit, allow the request, otherwise reject.
+I keep track of the current second and a counter. Every time `allowRequest()` is called I check — are we still in the same second? If yes and counter is under the limit, allow it. If counter hit the limit, reject it. When a new second starts, counter resets.
 
 ## Thread safety
 
-I used JavaScript because Node.js is single threaded. The event loop processes one thing at a time so `allowRequest()` can never run twice at the same moment. No locks needed, no race conditions possible.
+Node.js is single threaded so only one call runs at a time. No two calls to `allowRequest()` can happen at the same moment. So no locks or mutex needed — it's safe by default.
+
+## Test
+
+The test fires 5000 requests with a limit of 10. Only 10 get through. Rest are rejected.
